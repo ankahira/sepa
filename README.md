@@ -1,1 +1,1 @@
-# sepa
+# Preliminary SEPA assignment
