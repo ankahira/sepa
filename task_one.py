@@ -48,3 +48,15 @@ for i in possible_numbers:
             if (i % 3 == 0) and (i % 7 !=0):
                 odd_numbers_divisible_by_3_but_not_7.add(i)
                 print(odd_numbers_divisible_by_3_but_not_7)
+
+## function to split items in a number
+def getItems(number):
+    digits = []
+    # Loop the number as a string
+    for i in str(number):
+        digits.append(int(i))
+    return digits
+
+
+
+
