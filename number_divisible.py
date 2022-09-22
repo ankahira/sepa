@@ -6,6 +6,7 @@ for x in range (1,100):
     if x % 7 == 0 and x % 3 == 0:
         print (x)
         
+        
 # Print the numbers that are divisible by 7 but not 3
     if x % 7 == 0 and x % 3 !=0:
         print (x)  
