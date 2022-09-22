@@ -12,7 +12,7 @@
 ### Define range of numbers
 ### Single out all possible odd numbers to eliminate numbers like 14
 ### Check numbers divisible by 7 and 3
-### Check numbers divisible by 7 but not 3
+### Check numbers divisible by 7 but not 3 add to a set
 ### Check numbers divisible by 3 but not 3
 ### Print odd numbers divisible by 7 but not 3
 ### Split digits the add sum of the digits
@@ -25,7 +25,9 @@
 possible_numbers = range(1, 101)
 odd_numbers = []
 numbers_divisible_by_3_and_7 = []
-numbers_divisible_by_7_but_not_3 = []
+numbers_divisible_by_7_but_not_3 = set()
+numbers_divisible_by_3_but_not_7 = []
+
 
 # conditions
 for i in possible_numbers:
@@ -36,5 +38,11 @@ for i in possible_numbers:
     for i in odd_numbers:
         if i % 7 == 0 and i % 3 == 0:
             numbers_divisible_by_3_and_7.append(i)
-            print(numbers_divisible_by_3_and_7)
+            # print(numbers_divisible_by_3_and_7)
+        for i in numbers_divisible_by_3_and_7:
+            if (i % 7 == 0) and (1 % 3 != 0):
+                numbers_divisible_by_7_but_not_3.add(i)
+                print(numbers_divisible_by_7_but_not_3)
+
+
 
