@@ -12,8 +12,8 @@
 ### Define range of numbers
 ### Single out all possible odd numbers to eliminate numbers like 14
 ### Check numbers divisible by 7 and 3
-### Check numbers divisible by 7 but not 3 add to a set
-### Check numbers divisible by 3 but not 3
+### Check numbers divisible by 7 but not 3 add to empty set
+### Check numbers divisible by 3 but not 7 in main arrayand add to empty set
 ### Print odd numbers divisible by 7 but not 3
 ### Split digits the add sum of the digits
 ### Print numbers divisible by sum of digits
@@ -23,26 +23,28 @@
 #### Code
 # global variables
 possible_numbers = range(1, 101)
-odd_numbers = []
-numbers_divisible_by_3_and_7 = []
+odd_numbers = set()
+numbers_divisible_by_3_and_7 = set()
 numbers_divisible_by_7_but_not_3 = set()
-numbers_divisible_by_3_but_not_7 = []
+odd_numbers_divisible_by_3_but_not_7 = set()
 
 
 # conditions
 for i in possible_numbers:
+    if i % 7 == 0 and i % 3 == 0:
+        numbers_divisible_by_3_and_7.add(i)
+        print(numbers_divisible_by_3_and_7)
+
+for i in possible_numbers:
+    if (i % 7 == 0) and (1 % 3 != 0):
+        numbers_divisible_by_7_but_not_3.add(i)
+        print(numbers_divisible_by_7_but_not_3)
+
+for i in possible_numbers:
     if i % 2 != 0:
-        # check for odd numbers
-        odd_numbers.append(i)
+        odd_numbers.add(i)
         # print(odd_numbers)
-    for i in odd_numbers:
-        if i % 7 == 0 and i % 3 == 0:
-            numbers_divisible_by_3_and_7.append(i)
-            # print(numbers_divisible_by_3_and_7)
-        for i in numbers_divisible_by_3_and_7:
-            if (i % 7 == 0) and (1 % 3 != 0):
-                numbers_divisible_by_7_but_not_3.add(i)
-                print(numbers_divisible_by_7_but_not_3)
-
-
-
+        for i in odd_numbers:
+            if (i % 3 == 0) and (i % 7 !=0):
+                odd_numbers_divisible_by_3_but_not_7.add(i)
+                print(odd_numbers_divisible_by_3_but_not_7)
