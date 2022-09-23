@@ -27,18 +27,21 @@ odd_numbers = set()
 numbers_divisible_by_3_and_7 = set()
 numbers_divisible_by_7_but_not_3 = set()
 odd_numbers_divisible_by_7_but_not_3 = set()
+numbers_divisible_by_the_sum_of_its_digits = set()
+numbers_equal_to_the_square_of_the_sum_of_its_digits = set()
+
 
 
 # conditions
 for i in possible_numbers:
     if i % 7 == 0 and i % 3 == 0:
         numbers_divisible_by_3_and_7.add(i)
-# print(numbers_divisible_by_3_and_7)
+print(numbers_divisible_by_3_and_7)
 
 for i in possible_numbers:
     if (i % 7 == 0) and (i % 3 != 0):
         numbers_divisible_by_7_but_not_3.add(i)
-# print(numbers_divisible_by_7_but_not_3)
+print(numbers_divisible_by_7_but_not_3)
 
 for i in possible_numbers:
     if i % 2 != 0:
@@ -47,19 +50,25 @@ for i in possible_numbers:
         for i in odd_numbers:
             if (i % 7 == 0) and (i % 3 !=0):
                 odd_numbers_divisible_by_7_but_not_3.add(i)
-# print(odd_numbers_divisible_by_7_but_not_3)
+print(odd_numbers_divisible_by_7_but_not_3)
 
-## function to split items in a number
 
-def getItems(number):
-    digits = []
-    # Loop the number as a string
-    for i in str(number):
-        digits.append(int(i))
-    # print(digits)
-        if i in len(digits)< 1:
-            print(digits.index(i))
+def get_sum(digit):
+    sum = 0
+    for i in str(digit):
+        sum += int(i)
+    return sum
+    
+for i in possible_numbers:
+    if (i % get_sum(i) == 0):
+        ## numbers divisible by the sum of its digits
+        numbers_divisible_by_the_sum_of_its_digits.add(i)
+print(numbers_divisible_by_the_sum_of_its_digits)
 
-getItems(number = input("Enter 2 digit number: "))
 
+for i in possible_numbers:
+## numbers equal to the square of the sum of its digits
+    if (i == (get_sum(i)* get_sum(i))):
+        numbers_equal_to_the_square_of_the_sum_of_its_digits.add(i)
+print(numbers_equal_to_the_square_of_the_sum_of_its_digits)
 
