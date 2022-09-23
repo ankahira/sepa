@@ -26,37 +26,40 @@ possible_numbers = range(1, 101)
 odd_numbers = set()
 numbers_divisible_by_3_and_7 = set()
 numbers_divisible_by_7_but_not_3 = set()
-odd_numbers_divisible_by_3_but_not_7 = set()
+odd_numbers_divisible_by_7_but_not_3 = set()
 
 
 # conditions
 for i in possible_numbers:
     if i % 7 == 0 and i % 3 == 0:
         numbers_divisible_by_3_and_7.add(i)
-        print(numbers_divisible_by_3_and_7)
+# print(numbers_divisible_by_3_and_7)
 
 for i in possible_numbers:
-    if (i % 7 == 0) and (1 % 3 != 0):
+    if (i % 7 == 0) and (i % 3 != 0):
         numbers_divisible_by_7_but_not_3.add(i)
-        print(numbers_divisible_by_7_but_not_3)
+# print(numbers_divisible_by_7_but_not_3)
 
 for i in possible_numbers:
     if i % 2 != 0:
         odd_numbers.add(i)
         # print(odd_numbers)
         for i in odd_numbers:
-            if (i % 3 == 0) and (i % 7 !=0):
-                odd_numbers_divisible_by_3_but_not_7.add(i)
-                print(odd_numbers_divisible_by_3_but_not_7)
+            if (i % 7 == 0) and (i % 3 !=0):
+                odd_numbers_divisible_by_7_but_not_3.add(i)
+# print(odd_numbers_divisible_by_7_but_not_3)
 
 ## function to split items in a number
+
 def getItems(number):
     digits = []
     # Loop the number as a string
     for i in str(number):
         digits.append(int(i))
-    return digits
+    # print(digits)
+        if i in len(digits)< 1:
+            print(digits.index(i))
 
-
+getItems(number = input("Enter 2 digit number: "))
 
 
